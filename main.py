@@ -3,6 +3,14 @@ import math
 blue = "\033[94m"
 reset = "\033[0;0m"
 
+print(
+"██████╗░██╗░██████╗██╗░░██╗  ██████╗░███████╗██████╗░░█████╗░███████╗███╗░░██╗████████╗"
+"██╔══██╗██║██╔════╝██║░██╔╝  ██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔════╝████╗░██║╚══██╔══╝"
+"██║░░██║██║╚█████╗░█████═╝░  ██████╔╝█████╗░░██████╔╝██║░░╚═╝█████╗░░██╔██╗██║░░░██║░░░"
+"██║░░██║██║░╚═══██╗██╔═██╗░  ██╔═══╝░██╔══╝░░██╔══██╗██║░░██╗██╔══╝░░██║╚████║░░░██║░░░"
+"██████╔╝██║██████╔╝██║░╚██╗  ██║░░░░░███████╗██║░░██║╚█████╔╝███████╗██║░╚███║░░░██║░░░"
+"╚═════╝░╚═╝╚═════╝░╚═╝░░╚═╝  ╚═╝░░░░░╚══════╝╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░")
+
 #Grab the amount of the drive that's taken up.
 gbsTaken = int(input("How many GBS are taken on your drive?\n: " + blue))
 #Grab the total capacity of the drive.
@@ -18,4 +26,9 @@ def getPercent(gbsTaken, drvCapacity):
     return percent
 
 #Call the calculaton function and print the results to console.
-print(getPercent(gbsTaken, drvCapacity) , reset + "Percent of your drive is taken up")
+drvValue = getPercent(gbsTaken, drvCapacity)
+
+if drvValue <= 70:
+    print(drvValue, reset + "Percent of your drive is taken up, your good to go.")
+else:
+    print(drvValue, reset + "Percent of your drive is taken up, free up some space.")
