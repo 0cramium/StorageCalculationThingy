@@ -1,5 +1,6 @@
 import math
 import time
+import psutil
 
 print(
 "██████╗░██╗░██████╗██╗░░██╗  ██████╗░███████╗██████╗░░█████╗░███████╗███╗░░██╗████████╗\n"
@@ -10,28 +11,26 @@ print(
 "╚═════╝░╚═╝╚═════╝░╚═╝░░╚═╝  ╚═╝░░░░░╚══════╝╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░\n")
 
 #Grab the amount of the drive that's taken up.
-gbsTaken = int(input("How many GBS are taken on your drive?\n: "))
+diskUsed = psutil.disk_usage("/").used
 #Grab the total capacity of the drive.
-drvCapacity = int(input("What is your drive's capacity?\n: "))
-
-
+diskCapacity = psutil.disk_usage('/').total
 
 #initiate calculation
-def getPercent(gbsTaken, drvCapacity):
+def getPercent(diskUsed, diskCapacity):
     #Divide the taken up space by the total size of the drive.
-    quotient = gbsTaken / drvCapacity
+    quotient = diskUsed / diskCapacity
     #Multiply the result by 100 to get the percentage.
     percent = quotient * 100
     #Return the result of the equation to the program.
     return percent
 
 #Call the calculaton function and print the results to console.
-drvValue = getPercent(gbsTaken, drvCapacity)
+driveValue = getPercent(diskUsed, diskCapacity)
 
-if drvValue <= 70:
-    print(drvValue, "Percent of your drive is taken up, your good to go.")
+if driveValue <= 70:
+    print(driveValue, "Percent of your drive is taken up, your good to go.")
 else:
-    print(drvValue, "Percent of your drive is taken up, free up some space.")
+    print(driveValue, "Percent of your drive is taken up, free up some space.")
 
 print("Program will close automatically in 15 seconds.")
 
