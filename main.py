@@ -13,7 +13,7 @@ print(
 #Grab the amount of the drive that's taken up.
 diskUsed = psutil.disk_usage("/").used
 #Grab the total capacity of the drive.
-diskCapacity = psutil.disk_usage('/').total
+diskCapacity = psutil.disk_usage("/").total
 
 #initiate calculation
 def getPercent(diskUsed, diskCapacity):
