@@ -19,10 +19,8 @@ diskCapacity = psutil.disk_usage("/").total
 def getPercent(diskUsed, diskCapacity):
     #Divide the taken up space by the total size of the drive.
     quotient = diskUsed / diskCapacity
-    #Multiply the result by 100 to get the percentage.
-    percent = quotient * 100
-    #Return the result of the equation to the program.
-    return percent
+    #Multiply result by 100 to get percent and return.
+    return quotient * 100
 
 #Call the calculaton function and print the results to console.
 driveValue = getPercent(diskUsed, diskCapacity)
